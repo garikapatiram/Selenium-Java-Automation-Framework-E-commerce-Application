@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite parallel="tests" name="Suite">
+
+	<test thread-count="2" name="CartTest">
+		<classes>
+			<class name="test.CartTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="ProductTest">
+		<classes>
+			<class name="test.ProductTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="LoginTest">
+		<classes>
+			<class name="test.LoginTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="CheckoutTest">
+		<classes>
+			<class name="test.CheckoutTest" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
