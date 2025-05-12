@@ -9,10 +9,56 @@
           <include name="tearDown"/>
           <include name="beforeSuite"/>
           <include name="afterSuite"/>
+          <include name="testRemoveProductFromCart"/>
           <include name="testCartTotal"/>
+          <include name="testAddProductToCart"/>
           <include name="loginBeforeTest"/>
         </methods>
       </class> <!-- test.CartTest -->
     </classes>
   </test> <!-- CartTest(failed) -->
+  <test thread-count="5" parallel="tests" name="ProductTest(failed)">
+    <classes>
+      <class name="test.ProductTest">
+        <methods>
+          <include name="setup"/>
+          <include name="testProductSearch"/>
+          <include name="testProductListing"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+          <include name="loginBeforeTest"/>
+          <include name="testProductDetails"/>
+        </methods>
+      </class> <!-- test.ProductTest -->
+    </classes>
+  </test> <!-- ProductTest(failed) -->
+  <test thread-count="5" parallel="tests" name="CheckoutTest(failed)">
+    <classes>
+      <class name="test.CheckoutTest">
+        <methods>
+          <include name="setup"/>
+          <include name="testCheckoutProcess"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+          <include name="loginAndAddProductToCart"/>
+        </methods>
+      </class> <!-- test.CheckoutTest -->
+    </classes>
+  </test> <!-- CheckoutTest(failed) -->
+  <test thread-count="5" parallel="tests" name="LoginTest(failed)">
+    <classes>
+      <class name="test.LoginTest">
+        <methods>
+          <include name="setup"/>
+          <include name="testInvalidLogin"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+          <include name="testValidLogin"/>
+        </methods>
+      </class> <!-- test.LoginTest -->
+    </classes>
+  </test> <!-- LoginTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

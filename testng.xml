@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
-    <classes>
-      <class name="test.CartTest"/>
-      <class name="test.ProductTest"/>
-      <!--class name="base.BaseTest"/-->
-      <class name="test.LoginTest"/>
-      <class name="test.CheckoutTest"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+<suite name="Test Suite" parallel="tests" thread-count="5">
+    <listeners>
+        <listener class-name="listeners.TestListener"/>
+    </listeners>
+    
+    <test name = "Regression Tests">
+        <classes>
+            <class name="test.LoginTest" />
+            <class name="test.ProductTest" />
+            <class name="test.CartTest" />
+            <class name="test.CheckoutTest" />
+        </classes>
+    </test>
+    
+    <!--  test name="End-to-End Tests">
+        <classes>
+            <class name="com.ecommerce.tests.EndToEndTest" />
+        </classes>
+    </test -->
+</suite>

@@ -3,6 +3,7 @@
 
 <suite parallel="tests" name="Suite">
 
+	
 	<test thread-count="2" name="CartTest">
 		<classes>
 			<class name="test.CartTest" />
