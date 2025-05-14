@@ -12,10 +12,19 @@
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.release>17</maven.compiler.release>
-	</properties>
+	  <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <selenium.version>4.31.0</selenium.version>
+        <testng.version>7.11.0</testng.version>
+        <log4j.version>2.24.3</log4j.version>
+        <extentreports.version>5.0.9</extentreports.version>
+        <webdrivermanager.version>6.0.0</webdrivermanager.version>
+      <!--  <jackson.version>2.16.1</jackson.version> -->
+        <apache.poi.version>5.4.0</apache.poi.version>
+        <maven.surefire.version>3.2.5</maven.surefire.version>
+    </properties>
 
 	<dependencyManagement>
 		<dependencies>
@@ -76,14 +85,12 @@
 			<version>2.24.3</version>
 		</dependency>
 
-		<!--
-		https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
 		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.24.3</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-reload4j</artifactId>
+			<version>2.0.17</version>
 		</dependency>
-
+		
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 		<dependency>
 			<groupId>com.aventstack</groupId>
@@ -92,12 +99,8 @@
 		</dependency>
 		<!--
 		https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
-		<dependency>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<version>3.14.0</version>
-		</dependency>
-
+		
+		
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -107,61 +110,33 @@
 
 	</dependencies>
 
+ 
 	<build>
 		<pluginManagement><!-- lock down plugins versions to avoid using Maven
 			defaults (may be moved to parent pom) -->
 			<plugins>
-				<!-- clean lifecycle, see
-				https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+
+		 <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.12.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+			
 				<plugin>
-					<artifactId>
-						maven-clean-plugin</artifactId>
-					<version>3.4.0</version>
-				</plugin>
-				<!-- default lifecycle, jar packaging: see
-				https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
-				<plugin>
-					<artifactId>
-						maven-resources-plugin</artifactId>
-					<version>3.3.1</version>
-				</plugin>
-				<plugin>
-					<artifactId>
-						maven-compiler-plugin</artifactId>
-					<version>3.13.0</version>
-				</plugin>
-				<plugin>
-					<artifactId>
-						maven-surefire-plugin</artifactId>
-					<version>3.3.0</version>
-				</plugin>
-				<plugin>
-					<artifactId>
-						maven-jar-plugin</artifactId>
-					<version>3.4.2</version>
-				</plugin>
-				<plugin>
-					<artifactId>
-						maven-install-plugin</artifactId>
-					<version>3.1.2</version>
-				</plugin>
-				<plugin>
-					<artifactId>
-						maven-deploy-plugin</artifactId>
-					<version>3.1.2</version>
-				</plugin>
-				<!-- site lifecycle, see
-				https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
-				<plugin>
-					<artifactId>
-						maven-site-plugin</artifactId>
-					<version>3.12.1</version>
-				</plugin>
-				<plugin>
-					<artifactId>
-						maven-project-info-reports-plugin</artifactId>
-					<version>3.6.1</version>
-				</plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+
 			</plugins>
 		</pluginManagement>
 	</build>
